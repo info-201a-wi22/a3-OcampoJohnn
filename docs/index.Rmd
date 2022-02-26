@@ -1,0 +1,47 @@
+---
+title: "Assignment 3 Incarceration"
+author: "John Ocampo"
+date: "2/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("tidyverse")
+library("knitr")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = "../source")
+```
+
+```{r, echo = FALSE, include = FALSE}
+source("analysis.R")
+```
+
+## Introduction
+I don't need to tell you that there is an inequality problem in our prison and jail population. Countless independent groups from all over the world have mocked the US for its disproportionate incarcerating of minorities. That said, it doesn't hurt to look at the data and confirm if those claims are true. Here's a spoiler alert: they are. Sadly, our country does not have an equal justice system, and Black people have it the hardest.
+
+## Summary information
+The data used in this report comes from the Vera Institute of Justice, and while the data beings tracking as far back as 1970, I was unable to produce reliable numbers for the earliest 20 years. Therefore, I will focus my report on the numbers I managed to wrangle, 1990 through 2016. Speaking of 2016, `r hard_numbers_2016_black` Black people were in either jails or prisons that year. Comparing that to White people's incarcerated population of `r hard_numbers_2016_white` is hard because they're so similar. With this small distinction we'd imagine that the two races were equal in overall population—it's not. As such, rather than focus on the entire country as a whole, I will focus primarily on Washington, my home state. `r max_jail_year` was the Washington has it's highest jail population, with `r max_jail_population` people in jail. `r complete_max_year`is the year with the highest population of people both in prison and in jail, `r complete_max_population` people. In 2016, `r max_jail_county` has the highest population of people in jail, `r max_jail_county_people` people. More accurately, `r max_jail_proportion_county` has the highest proportion of people in jail.
+
+
+## Trends over time chart
+```{r, echo = FALSE}
+plot(time_trend_chart)
+```
+
+I created this first chart to see a little clearer what the number of people incarcerated in Washington looks like. To my surprise, there's an unexpected distinction between the people incarcerated. White people are incarcerated more than Black people. This is surprising because, as discussed in the summary information, there are a disproportionate number of Black people serving time. I did not expect to see such low numbers of Black people serving time in Washington, but it was a welcome surprise to be sure. The layout for this chart is basic, the x value is the years, to track continuous variables, the y value is simply the number of prisoners, and each line represents a different variable.
+
+
+## Variable comparison chart  
+```{r, echo = FALSE}
+plot(variable_comparison)
+```
+
+This bar graph is far more interesting, here a relevant trend emerges; the population of prisoners in Washington state is understandably steadily increasing. However, the prisoner population for Black people stays relatively the same. I have two theories on this, first is that the population of Black people in washing has stayed relatively the same for these 26 years. Second is that Washington is one of the few states that can actually treat Black people like actual people rather than minorities. I would like to think it's the latter, but my gut says its the former.
+
+
+## Map 
+```{r, echo = FALSE}
+plot(wa_map)
+```
+
+Why did is my gut telling me it's the former? It's because it saw this map. This is a map of Washington state detailing the percentage jail population of Black people by county. Here we can see that there are a small number of counties with a large percentage of Black people in their jails. While these counties are also some of the largest in Washington state, it's sad to see that they're so disproportionate. I chose to go with percentages in filling the counties because raw numbers would not provide the same quality of information.
